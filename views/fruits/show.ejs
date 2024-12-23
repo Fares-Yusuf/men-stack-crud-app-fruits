@@ -1,0 +1,42 @@
+<!-- views/fruits/show.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        <%= fruit.name %>
+    </title> <!-- Dynamic title based on fruit name -->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<<!-- views/fruits/show.ejs -->
+
+    <body>
+        <h1>
+            <%= fruit.name %>
+        </h1>
+        <% if(fruit.isReadyToEat){ %>
+            <p>This fruit is ready to eat!</p>
+            <% } else { %>
+                <p>This fruit is not ready to eat!</p>
+                <% } %>
+                    <!-- new delete button -->
+                    <div class="fruit-actions">
+                        <form class="delete-form" action="/fruits/<%=fruit._id%>?_method=DELETE" method="POST">
+                            <button class="delete-button" type="submit">
+                                Delete <%= fruit.name %>
+                            </button>
+                        </form>
+                        <a class="edit-link" href="/fruits/<%= fruit._id %>/edit">
+                            <div class="edit-text">Edit <%= fruit.name %>
+                            </div>
+                        </a>
+                    </div>
+                    <a class="fruits-index-link" href="/fruits">
+                        <div class="index-link-text">Back to Fruits</div>
+                    </a>
+    </body>
+
+</html>

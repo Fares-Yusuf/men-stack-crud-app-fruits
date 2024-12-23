@@ -1,0 +1,29 @@
+<!-- views/fruits/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruits Index</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<!-- views/fruits/index.ejs -->
+<body>
+    <div class="index-header-div">
+        <h1>All Fruits</h1>
+        <a class="add-fruit" href="/fruits/new">Add fruit</a>
+    </div>
+    <ul>
+        <% fruits.forEach((fruit)=> { %>
+            <li>
+                <a class="fruit-cards" href="/fruits/<%=fruit._id%>">
+                    <%= fruit.name %>
+                </a>
+            </li>
+            <% }) %>
+    </ul>
+</body>
+
+</html>
